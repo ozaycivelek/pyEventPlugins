@@ -7,3 +7,4 @@ class MountPoint(type):
 			'''It must be a plugin implementation if we're here'''
 			cls.plugins.append(cls)
 			cls.__pluginname__ = name
+	

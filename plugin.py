@@ -9,10 +9,12 @@ Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 from Library.EventManager import Events
 from Plugins import *
 
-
-
 if __name__ == '__main__':
-	Events().fire('ON_CLEAR')
-	print Events().list_types()
-	print Events().list_plugins()
+	Events().fire('COUNT')
+	Events().fire('COUNT')
+	Events().fire('COUNT')
+	Events().fire('COUNT')
+	Events().fire('COUNT')
+	#print Events().list_types()
+	#print Events().list_plugins()
 
