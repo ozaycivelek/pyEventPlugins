@@ -5,11 +5,11 @@ class Events(object):
 	__metaclass__ = MountPoint
 	__hookpoints__ = {}
 	
-	def fire(self,event):
+	def fire(self,event, *args, **kw):
 		for action in self.plugins:
 			if event in action().hook_points():
 				try:
-					action().execute(event)
+					action().execute(event, *args, **kw)
 				except EventManagerException:
 					message_tmpl = "%s could not invoke %s hook\nAvailable hooks are %s"
 					message_data = (action().__pluginname__, event, str(action().__hookpoints__))
@@ -20,14 +20,14 @@ class Events(object):
 		"""Return a list of hooked events"""
 		return self.__hookpoints__.keys()
 	
-	def execute(self, hook_point):
+	def execute(self, hook_point, *args, **kw):
 		"""Execute the given method for an event"""
 		try:
 			methodname = self.__hookpoints__[hook_point]
 			method = getattr(self, methodname)
-			method()
+			method(*args, **kw)
 		except:
-			raise EventManagerException("%s failed" % hook_point)
+			raise EventManagerException("%s failed\n%s" % hook_point)
 		
 	
 	def list_types(self):

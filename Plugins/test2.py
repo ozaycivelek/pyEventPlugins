@@ -4,5 +4,5 @@ class example_plugin(Events):
 	
 	__hookpoints__ = {'ON_CLEAR' : 'per6orm'}
 	
-	def per6orm(self):
+	def per6orm(self, *args, **kw):
 		print "wa sdfgsdfgsdfgsdfg!"

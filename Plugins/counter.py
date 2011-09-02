@@ -12,6 +12,6 @@ class counter(Events):
 	
 	__counter__ = 0
 	
-	def perform(self):
+	def perform(self, *args, **kw):
 		self.__counter__ += 1
 		print self.__counter__
