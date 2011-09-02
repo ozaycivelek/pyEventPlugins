@@ -1,0 +1,46 @@
+
+
+   pyEventPlugins
+
+   (c)2011 Some Rights Reserved, Ozay Civelek <ozay.civelek@gmail.com>
+
+   pyEventPlugins is a simple event/plugin framework. Write your own event handler plugins
+   and put them in ./Plugins directory.
+
+   Plugins should have the following structure
+
+    ''' import the EventManager Library '''
+    from .Library.EventManager import Events
+
+	class PluginName(Events):
+		'''Define which methods to be invoked '''
+		__hookpoints__ = {'EVENT_NAME' : 'METHOD_NAME'}
+		
+		''' KEEP THE FOLLOWING IF YOU NEED SINGLETON '''
+		''' Do not forget to put in your PluginName below '''
+		
+		__Instance = None
+
+		def __new__(cls, *args, **kw):
+			if not cls.__Instance:
+				cls.__Instance = super(PluginName, cls).__new__(cls,*args, **kw)
+			return cls.__Instance
+
+		''' END OF SINGLETON '''
+
+		__plugins_can_have_properties_as_well__ = 0
+
+		def perform(self, *args, **kw):
+			self.__plugins_can_have_properties_as_well__ += 1
+			'''Do more stuff here'''
+			self.fire('ANOTHER_EVENT', with_vars, or_even_named = vars)
+			pass
+
+	If everything works well, the following code shall invoke the plugin above
+	''' import the Events Library '''
+	from Library.EventManager import Events
+
+	Events().fire('EVENT_NAME',"vars", "and more vars", even_named = ones)
+	
+	Since you don't have to mention which plugins are present, by only adding
+	or removing plugin classes, you can alter the behavior of your application 

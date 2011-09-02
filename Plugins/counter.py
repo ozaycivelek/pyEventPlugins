@@ -1,3 +1,20 @@
+"""
+ COPYRIGHT (C) Ozay Civelek <ozay.civelek@gmail.com>
+ 
+ This file is a part of pyEventPlugins software package
+ Some rights reserved
+
+ Author 	: Ozay Civelek <ozay.civelek@testurk.com>
+ Date		: $__date__$
+
+ Version	: $__version__$
+ 
+ $__file__$
+ 
+ Singleton Plugin Example
+
+ Demonstrate Singleton usage of plugin system.
+"""
 from .Library.EventManager import Events
 
 class counter(Events):
