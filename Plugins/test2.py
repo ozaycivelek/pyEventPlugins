@@ -15,7 +15,7 @@
 
  Demonstrate burst usage of plugin system. Please note plugins
  may also fire events, thus plugins can be chained to perform
- more complex tasks upon a fired event
+ more complex tasks upon a fired single event
 """
 from .Library.EventManager import Events
 

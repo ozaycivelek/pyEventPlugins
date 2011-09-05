@@ -1,0 +1,13 @@
+Ideas :
+=======================
+1. Can we add a plugin type in order to support XMLRPC calls as event handlers?
+	- Add another layer between plugins and PluginMount
+	- Act based on type??
+	- Or just form a wrapper around Events such as RPCEvents?
+2. Can we return values somehow? Do we have to?
+3. Do we need a shared scope between program logic and plugins?
+4. We keep calling the event handlers sequentially with no respect to changes in the data set
+   delivered to the handler. Maybe this would also answer idea 3
+5. Can we dynamically update the plugin directory just in case we wish to use the system for
+   demonized processes?
+6. Would it be beneficial to add socket support?

@@ -22,6 +22,6 @@ from Library.EventManager import Events
 
 if __name__ == '__main__':
 	Events().fire('ON_CLEAR',"selaaaaam", " ", "naber?", func="eveeet")
-	print Events().list_types()
-	print Events().list_plugins()
+	#print Events().list_types()
+	#print Events().list_plugins()
 
