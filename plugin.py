@@ -10,12 +10,12 @@ from Library.EventManager import Events
 from Plugins import *
 
 if __name__ == '__main__':
-	Events().fire('COUNT')
-	Events().fire('COUNT')
-	Events().fire('COUNT')
-	Events().fire('COUNT')
-	Events().fire('COUNT')
+	#Events().fire('COUNT')
+	#Events().fire('COUNT')
+	#Events().fire('COUNT')
+	#Events().fire('COUNT')
+	#Events().fire('COUNT')
 	Events().fire('ON_CLEAR',"selaaaaam", " ", "naber?", func="eveeet")
 	#print Events().list_types()
-	print Events().list_plugins()
+	#print Events().list_plugins()
 
