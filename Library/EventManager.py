@@ -1,11 +1,33 @@
+"""
+ COPYRIGHT (C) Ozay Civelek <ozay.civelek@gmail.com>
+ 
+ This file is a part of pyEventPlugins software package
+ Some rights reserved
+
+ Author 	: Ozay Civelek <ozay.civelek@testurk.com>
+ Date		: $__date__$
+
+ Version	: $__version__$
+ 
+ $__file__$
+ 
+ Event Manager Class
+
+ Generic Event/Plugin interface providing all the functionality
+ required to be performed on plugins being loaded.
+
+"""
 from PluginMount import MountPoint
 from Exceptions import EventManagerException
 
 class Events(object):
+	"""Event specific logic interface for plugins"""
+	
 	__metaclass__ = MountPoint
 	__hookpoints__ = {}
 	
-	def fire(self,event, *args, **kw):
+	def fire(self, event, *args, **kw):
+		"""Fire and event"""
 		for action in self.plugins:
 			if event in action().hook_points():
 				try:
@@ -31,12 +53,14 @@ class Events(object):
 		
 	
 	def list_types(self):
+		"""Return all event types to be caught by plugins"""
 		event_list = []
 		for action in self.plugins:
 			[event_list.append(el) for el in action().hook_points() if el not in event_list]
 		return event_list
 	
 	def list_plugins(self):
+		"""Return a dictionary of plugin names and events hooked into"""
 		plugins = {}
 		for action in self.plugins:
 			plugins[action().__pluginname__] = action().hook_points()

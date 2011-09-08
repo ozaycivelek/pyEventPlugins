@@ -1,0 +1,12 @@
+# Mac OS X
+*.DS_Store
+
+# TextMate
+*.tmproj
+
+# Generated files
+*.[oa]
+*.pyc
+
+# Backup files
+*~.nib
