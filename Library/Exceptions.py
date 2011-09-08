@@ -4,7 +4,7 @@
  This file is a part of pyEventPlugins software package
  Some rights reserved
 
- Author 	: Ozay Civelek <ozay.civelek@testurk.com>
+ Author		: Ozay Civelek <ozay.civelek@testurk.com>
  Date		: $__date__$
 
  Version	: $__version__$
@@ -16,10 +16,12 @@
  Generic event exception class
 
 """
+
 class EventManagerException(Exception):
 	"""Event manager exception"""
-    pass
-    def __init__(self, message):
-        self.value = message
-    def __str__(self):
-        return self.value
+	
+	def __init__(self, message):
+		self.value = message
+	
+	def __str__(self):
+		return self.value
